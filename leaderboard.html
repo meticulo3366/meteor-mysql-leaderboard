@@ -6,6 +6,11 @@
 
 <body>
   <div class="outer">
+    
+    <button onClink="GLOBALUSER=1;">ME USER 1</button>
+    <button onClick="GLOBALUSER=2;">ME USER 2</button>
+    <button onClick="GLOBALUSER=3;">ME USER 3</button>
+
     <div class="logo"></div>
     <h1 class="title">Leaderboard</h1>
     <div class="subtitle">Select a scientist to give them points</div>
@@ -36,4 +41,95 @@
     <span class="score">{{score}}</span>
   </li>
 </template>
+
+<!-- /////////////// Login Templates /////////////// -->
+
+<!-- Login Template -->
+<template name="login">
+  <div>
+    <center><img src="propulsionLogo.svg" alt="" class="companyLogo"></center>
+    <center><h3>Propulsion</h3></center>
+    <form class="login-form" id="login-form" action="action">    
+      <center><h4>Log In / <small><a href="{{pathFor 'register'}}">Register</a></small></h4></center>   
+      <hr>
+      <div class="input-group emailGroup">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+        <input type="email" class="form-control input-lg email" placeholder="Email" id="login-email" required>
+      </div>
+      <div class="input-group passwordGroup">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+        <input type="password" class="form-control input-lg password" placeholder="Password" id="login-password" required>
+      </div>
+      <center><a href="{{pathFor 'forgotPassword'}}">Forgot Password?</a></center>
+      <br>
+      <center><p id="error"></p></center> 
+      <input type="submit" class="btn btn-default btn-lg btn-block" id="logIn" value="Log In">
+    </form>
+  </div>
+</template>
+
+<!-- Forgot Password Template -->
+<template name="forgotPassword">
+  <div>
+    <center><img src="propulsionLogo.svg" alt="" class="companyLogo"></center>
+    <center><h3>Propulsion</h3></center>
+    {{#if resetPassword}}
+      <form class="login-form" id="resetPassword-form" action="action">    
+        <center><h4><small><a href="{{pathFor 'login'}}">Log In</a></small> / <small><a href="{{pathFor 'register'}}">Register</a></small></h4></center> 
+        <hr>
+        <div class="input-group">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+          <input type="password" class="form-control input-lg password" placeholder="Password" id="resetPassword" required>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+          <input type="password" class="form-control input-lg password" placeholder="Confirm Password" id="resetConfirmPassword" required>
+        </div>
+        <br>
+        <center><p id="error"></p></center> 
+        <input type="submit" class="btn btn-default btn-lg btn-block" id="resetPasswordSubmit" value="Submit">
+      </form>
+    {{else}}
+      <form class="login-form" id="forgotPassword-form" action="action">    
+        <center><h4><small><a href="{{pathFor 'login'}}">Log In</a></small> / <small><a href="{{pathFor 'register'}}">Register</a></small></h4></center>   
+        <hr>
+        <div class="input-group">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+          <input type="email" class="form-control input-lg email" placeholder="Email" id="forgotPassword-email" required>
+        </div>
+        <br>
+        <center><p id="error"></p></center>
+        <input type="submit" class="btn btn-default btn-lg btn-block" id="forgotPasswordSubmit" value="Submit">
+      </form>
+    {{/if}}
+  </div>
+</template>
+<!-- Register Template -->
+<template name="register">
+  <div>
+    <center><img src="propulsionLogo.svg" alt="" class="companyLogo"></center>
+    <center><h3>Propulsion</h3></center>
+    <form class="login-form" id="register-form" action="action">    
+      <center><h4><small><a href="{{pathFor 'login'}}">Log In</a></small> / Register</h4></center>   
+      <hr>
+      <div class="input-group emailGroup">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+        <input type="email" class="form-control input-lg email" placeholder="Email" id="register-email" required>
+      </div>
+      <div class="input-group confirmPasswordGroup">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+        <input type="password" class="form-control input-lg password" placeholder="Password" id="register-password" required>
+      </div>
+      <div class="input-group passwordGroup">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+        <input type="password" class="form-control input-lg password" placeholder="Confirm Password" id="register-confirm-password" required>
+      </div>
+      <br>
+      <center><p id="error"></p></center> 
+      <input type="submit" class="btn btn-default btn-lg btn-block" id="resgister" value="Register">
+    </form>
+  </div>
+</template>
+
+
 

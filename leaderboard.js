@@ -6,6 +6,8 @@ myScore.addEventListener('update', function(index, msg){
   console.log(msg.fields.score);
 });
 
+GLOBALUSER=1;
+
 if (Meteor.isClient) {
 
   // Provide a client side stub
@@ -54,7 +56,7 @@ if (Meteor.isClient) {
       return Session.equals("selectedPlayer", this.id) ? "selected" : '';
     }
   });
-
+ 
   Template.player.events({
     'click': function () {
       Session.set("selectedPlayer", this.id);
@@ -66,9 +68,10 @@ if (Meteor.isServer) {
   var db;
   var mysqlSettings = {
     host: 'localhost',
+    port: 8889,
     user: 'root',
-    password: 'numtel',
-    database: 'leaderboard'
+    password: 'root',
+    database: 'meteor_leaderboard'
   };
 
   Meteor.startup(function () {
